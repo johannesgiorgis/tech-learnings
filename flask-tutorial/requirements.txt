@@ -1,11 +1,25 @@
 appdirs==1.4.3
+atomicwrites==1.3.0
 attrs==19.1.0
 black==19.3b0
 Click==7.0
+coverage==4.5.4
 Flask==1.1.1
+-e git+git@github.com:johannesgiorgis/flask_tutorial.git@04dab85cddb0f37924bf15b8689a18d40771c5a5#egg=flaskr&subdirectory=flask-tutorial
+importlib-metadata==0.19
 itsdangerous==1.1.0
 Jinja2==2.10.1
 MarkupSafe==1.1.1
+more-itertools==7.2.0
+packaging==19.1
 pep8==1.7.1
+pluggy==0.12.0
+py==1.8.0
+pyparsing==2.4.2
+pytest==5.0.1
+python-dotenv==0.10.3
+six==1.12.0
 toml==0.10.0
+wcwidth==0.1.7
 Werkzeug==0.15.5
+zipp==0.5.2
