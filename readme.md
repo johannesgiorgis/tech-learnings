@@ -1,8 +1,19 @@
-# Flask Tutorial
+# Flask Tutorials
 
-Working through the [Flask Tutorial] to build Flaskr.
+A series of Flask Tutorials.
 
+---
+
+_Folders_ 
+
+- [flaskr-tutorial] - The official [Flask Tutorial] to build Flaskr, a basic blog web app.
+- [flask-sqalchemy-tutorial] - Kite.com tutorial on Flask and SQLAlchemy.
 
 [//]: # (Reference links)
 
+
 [Flask Tutorial]: https://flask.palletsprojects.com/en/1.1.x/tutorial/
+
+
+[flaskr-tutorial]: flaskr-tutorials/
+[flask-sqalchemy-tutorial]: flask-sqlalchemy-tutorial/
