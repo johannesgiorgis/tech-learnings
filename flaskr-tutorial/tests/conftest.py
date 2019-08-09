@@ -32,7 +32,7 @@ def client(app):
 
 @pytest.fixture
 def runner(app):
-    return app.text_cli_runner()
+    return app.test_cli_runner()
 
 
 class AuthActions(object):
