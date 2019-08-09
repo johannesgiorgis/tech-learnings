@@ -15,5 +15,5 @@ _Folders_
 [Flask Tutorial]: https://flask.palletsprojects.com/en/1.1.x/tutorial/
 
 
-[flaskr-tutorial]: flaskr-tutorials/
+[flaskr-tutorial]: flaskr-tutorial/
 [flask-sqalchemy-tutorial]: flask-sqlalchemy-tutorial/
