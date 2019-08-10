@@ -2,6 +2,9 @@
 
 A series of Flask Tutorials.
 
+TO DO:
+- https://kite.com/blog/python/flask-restful-api-tutorial/
+
 ---
 
 _Folders_ 
