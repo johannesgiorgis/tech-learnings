@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/websocket"
 	"github.com/johannesgiorgis/golang_learning/goblueprints/chapter01/trace"
@@ -32,7 +33,7 @@ func newRoom() *room {
 		join:    make(chan *client),
 		leave:   make(chan *client),
 		clients: make(map[*client]bool),
-		tracer:  trace.Off(),
+		tracer:  trace.New(os.Stdout), //trace.Off(),
 	}
 }
 
