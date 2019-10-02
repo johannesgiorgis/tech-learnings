@@ -1,4 +1,4 @@
-# Golang Learning
+# TypeScript Learning
 
 This repository contains my learnings of TypeScript.
 
