@@ -26,5 +26,5 @@ A series of FastAPI Tutorials.
 
 [Youtube: FastAPI from the ground up]: https://www.youtube.com/watch?v=3DLwPcrE5mA
 
-[simple-fastapi-tutorial]: simple-fastapi-tutorial/
+[simple-fastapi-tutorial]: simple-fastapi-app/
 [fastapi-tutorial]: fastapi-tutorial/
