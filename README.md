@@ -2,6 +2,8 @@
 
 This repository contains my work on Free Code Camp.
 
+The current goal is to work through the JavaScript and the APIs and Microserices sections to build proficiency in JavaScript backend development. 
+
 ## Free Code Camp Curriculum
 
 ### Responsive Web Design Certification (300 hours)
@@ -17,12 +19,12 @@ This repository contains my work on Free Code Camp.
 
 ### JavaScript Algorithms and Data Structures Certification (300 hours)
 
-- [ ] Basic JavaScript
-- [ ] ES6
-- [ ] Regular Expressions
-- [ ] Debugging
-- [ ] Basic Data Structures
-- [ ] Basic Algorithm Scripting
+- [x] Basic JavaScript
+- [x] ES6
+- [x] Regular Expressions
+- [x] Debugging
+- [x] Basic Data Structures
+- [x] Basic Algorithm Scripting
 - [ ] Object Oriented Programming
 - [ ] Functional Programming
 - [ ] Intermediate Algorithm Scripting
@@ -39,6 +41,7 @@ This repository contains my work on Free Code Camp.
 - [ ] Front End Libraries Projects
 
 ### Data Visualization Certification (300 hours)
+
 - [ ] Data Visualization with D3
 - [ ] JSON APIs and Ajax
 - [ ] Data Visualization Projects
