@@ -5,7 +5,7 @@ Array.prototype.myFilter = function(callback){
   var newArray = [];
   // Add your code below this line
 
-  for(let i = 0; i < this.length; i++) {
+  for (let i = 0; i < this.length; i++) {
     if (callback(this[i]) === true) {
       newArray.push(this[i]);
     }
