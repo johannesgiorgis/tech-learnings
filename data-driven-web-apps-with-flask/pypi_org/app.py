@@ -2,7 +2,9 @@ import os
 import sys
 import flask
 
-folder = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+from pathlib import Path
+
+folder = str(Path(__file__).parent.absolute().parent)
 print(f"Folder:{folder}")
 sys.path.insert(0, folder)
 
