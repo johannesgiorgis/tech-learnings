@@ -1,39 +1,43 @@
-import os
 import sys
 import flask
 
 from pathlib import Path
 
 folder = str(Path(__file__).parent.absolute().parent)
-print(f"Folder:{folder}")
 sys.path.insert(0, folder)
 
-from pypi_org.infrastructure.view_modifiers import response
+# from pypi_org.infrastructure.view_modifiers import response
+# import pypi_org.services.package_service as package_service
 
 app = flask.Flask(__name__)
 
 
-def get_latest_packages():
-    return [
-        {"name": "flask", "version": "1.2.3"},
-        {"name": "sqlalchemy", "version": "2.2.0"},
-        {"name": "passlib", "version": "3.0.0"},
-    ]
+def main():
+    register_blueprints()
+    app.run(debug=True)
 
 
-@app.route("/")
-@response(template_file="home/index.html")
-def index():
-    test_packages = get_latest_packages()
-    return {"packages": test_packages}
-    # return flask.render_template("home/index.html", packages=test_packages)
+def register_blueprints():
+    from pypi_org.views import home_views
+    from pypi_org.views import package_views
+
+    app.register_blueprint(home_views.blueprint)
+    app.register_blueprint(package_views.blueprint)
 
 
-@app.route("/about")
-@response(template_file="home/about.html")
-def about():
-    return {}
+# @app.route("/")
+# @response(template_file="home/index.html")
+# def index():
+#     test_packages = package_service.get_latest_packages()
+#     return {"packages": test_packages}
+#     # return flask.render_template("home/index.html", packages=test_packages)
+#
+#
+# @app.route("/about")
+# @response(template_file="home/about.html")
+# def about():
+#     return {}
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    main()
