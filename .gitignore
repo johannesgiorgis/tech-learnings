@@ -1,5 +1,7 @@
 # folders
 .vscode
 venv
+.idea
 
 # files
+.DS_Store
