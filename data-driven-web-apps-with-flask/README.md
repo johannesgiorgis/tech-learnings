@@ -13,8 +13,8 @@ These are my notes and code as I work through the [Talk Python course].
 - [x] Jinja2 templates
 - [x] Routing and URLs
 - [x] Bootstrap and frontend CSS frameworks
-- [ ] **Adding our design**
-- [ ] Modeling data with SQLAlchemy classes
+- [x] Adding our design
+- [ ] **Modeling data with SQLAlchemy classes**
 - [ ] Using SQLAchemy
 - [ ] Database migrations with Alembic
 - [ ] User input and HTML forms
