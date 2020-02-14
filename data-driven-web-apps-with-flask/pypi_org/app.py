@@ -1,3 +1,4 @@
+import os
 import sys
 import flask
 
@@ -5,6 +6,9 @@ from pathlib import Path
 
 folder = str(Path(__file__).parent.absolute().parent)
 sys.path.insert(0, folder)
+
+import pypi_org.data.db_session as db_session
+
 
 # from pypi_org.infrastructure.view_modifiers import response
 # import pypi_org.services.package_service as package_service
@@ -14,7 +18,13 @@ app = flask.Flask(__name__)
 
 def main():
     register_blueprints()
+    setup_db()
     app.run(debug=True)
+
+
+def setup_db():
+    db_file = os.path.join(os.path.dirname(__file__), "db", "pypi.sqlite")
+    db_session.global_init(db_file)
 
 
 def register_blueprints():
