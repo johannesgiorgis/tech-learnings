@@ -3,6 +3,7 @@
 venv
 .idea
 __pycache__
+course-repo
 
 # files
 .DS_Store
