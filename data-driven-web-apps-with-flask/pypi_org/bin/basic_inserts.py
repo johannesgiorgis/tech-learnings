@@ -40,9 +40,8 @@ def insert_a_package():
     r.size = int(input("Size in bytes: "))
     p.releases.append(r)
 
-    import sqlalchemy.orm
+    session = db_session.create_session()
 
-    session: sqlalchemy.orm.Session = db_session.factory()
     session.add(p)
     session.commit()
 
