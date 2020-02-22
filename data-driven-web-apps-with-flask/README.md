@@ -15,8 +15,8 @@ These are my notes and code as I work through the [Talk Python course].
 - [x] Bootstrap and frontend CSS frameworks
 - [x] Adding our design
 - [x] Modeling data with SQLAlchemy classes
-- [ ] Using SQLAchemy **(Currently working on)**
-- [ ] Database migrations with Alembic
+- [x] Using SQLAchemy
+- [ ] Database migrations with Alembic **(Currently working on)**
 - [ ] User input and HTML forms
 - [ ] Client and server-side validation
 - [ ] Testing web apps
