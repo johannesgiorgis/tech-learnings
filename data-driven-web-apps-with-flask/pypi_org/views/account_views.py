@@ -1,5 +1,6 @@
 import flask
 
+from pypi_org.infrastructure import request_dict
 from pypi_org.infrastructure.view_modifiers import response
 from pypi_org.services import user_service
 import pypi_org.infrastructure.cookie_auth as cookie_auth
@@ -37,11 +38,11 @@ def register_get():
 @blueprint.route("/account/register", methods=["POST"])
 @response(template_file="account/register.html")
 def register_post():
-    r = flask.request
+    data = request_dict
 
-    name = r.form.get("name")
-    email = r.form.get("email", "").lower().strip()
-    password = r.form.get("password", "").strip()
+    name = data.name
+    email = data.email.lower().strip()
+    password = data.password.strip()
 
     if not name or not email or not password:
         return {
