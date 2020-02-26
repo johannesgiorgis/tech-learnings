@@ -14,16 +14,14 @@ blueprint = flask.Blueprint("account", __name__, template_folder="templates")
 @response(template_file="account/index.html")
 def index():
     user_id = cookie_auth.get_user_id_via_auth_cookie(flask.request)
+    if user_id is None:
+        return flask.redirect("/account/login")
+
     user = user_service.find_user_by_id(user_id)
     if not user:
         return flask.redirect("/account/login")
 
-    return {"user": user}
-
-
-@blueprint.route("/<int:rank>")
-def popular(rank: int):
-    return f"The details for the {rank}th most popular package"
+    return {"user": user, "user_id": user.id}
 
 
 # ################### REGISTER #################################
@@ -32,13 +30,15 @@ def popular(rank: int):
 @blueprint.route("/account/register", methods=["GET"])
 @response(template_file="account/register.html")
 def register_get():
-    return {}
+    return {
+        "user_id": cookie_auth.get_user_id_via_auth_cookie(flask.request),
+    }
 
 
 @blueprint.route("/account/register", methods=["POST"])
 @response(template_file="account/register.html")
 def register_post():
-    data = request_dict
+    data = request_dict.create(default_val="")
 
     name = data.name
     email = data.email.lower().strip()
@@ -50,6 +50,7 @@ def register_post():
             "email": email,
             "password": password,
             "error": "Some required fields are missing.",
+            "user_id": cookie_auth.get_user_id_via_auth_cookie(flask.request),
         }
 
     user = user_service.create_user(name, email, password)
@@ -59,6 +60,7 @@ def register_post():
             "email": email,
             "password": password,
             "error": "A user with that email already exists.",
+            "user_id": cookie_auth.get_user_id_via_auth_cookie(flask.request),
         }
 
     resp = flask.redirect("/account")
@@ -79,16 +81,17 @@ def login_get():
 @blueprint.route("/account/login", methods=["POST"])
 @response(template_file="account/login.html")
 def login_post():
-    r = flask.request
+    data = request_dict.create(default_val="")
 
-    email = r.form.get("email", "").lower().strip()
-    password = r.form.get("password", "").strip()
+    email = data.email.lower().strip()
+    password = data.password.strip()
 
     if not email or not password:
         return {
             "email": email,
             "password": password,
             "error": "Some required fields are missing.",
+            "user_id": cookie_auth.get_user_id_via_auth_cookie(flask.request),
         }
 
     user = user_service.login_user(email, password)
@@ -97,6 +100,7 @@ def login_post():
             "email": email,
             "password": password,
             "error": "The account does not exist or the password is incorrect.",
+            "user_id": cookie_auth.get_user_id_via_auth_cookie(flask.request),
         }
 
     resp = flask.redirect("/account")

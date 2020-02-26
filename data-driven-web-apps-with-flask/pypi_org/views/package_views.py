@@ -1,5 +1,6 @@
 import flask
 
+from pypi_org.infrastructure import cookie_auth
 from pypi_org.infrastructure.view_modifiers import response
 import pypi_org.services.package_service as package_service
 
@@ -7,7 +8,7 @@ blueprint = flask.Blueprint("packages", __name__, template_folder="templates")
 
 
 @blueprint.route("/project/<package_name>")
-@response(template_file='packages/details.html')
+@response(template_file="packages/details.html")
 def package_details(package_name: str):
 
     if not package_name:
@@ -27,11 +28,12 @@ def package_details(package_name: str):
         latest_version = latest_release.version_text
 
     return {
-        'package': package,
-        'latest_version': latest_version,
-        'latest_release': latest_release,
-        'release_version': latest_release,
-        'is_latest': is_latest,
+        "package": package,
+        "latest_version": latest_version,
+        "latest_release": latest_release,
+        "release_version": latest_release,
+        "is_latest": is_latest,
+        "user_id": cookie_auth.get_user_id_via_auth_cookie(flask.request),
     }
 
 
