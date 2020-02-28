@@ -23,6 +23,4 @@ def index():
 @blueprint.route("/about")
 @response(template_file="home/about.html")
 def about():
-    return {
-        "user_id": cookie_auth.get_user_id_via_auth_cookie(flask.request),
-    }
+    return {"user_id": cookie_auth.get_user_id_via_auth_cookie(flask.request)}

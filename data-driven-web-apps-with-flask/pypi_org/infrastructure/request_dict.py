@@ -3,8 +3,12 @@ from werkzeug.datastructures import MultiDict
 
 
 class RequestDictionary(dict):
+    def __init__(self, *args, default_val=None, **kwargs):
+        self.default_val = default_val
+        super().__init__(*args, **kwargs)
+
     def __getattr__(self, key):
-        return self.get(key)
+        return self.get(key, self.default_val)
 
 
 def create(default_val=None, **route_args) -> RequestDictionary:
@@ -28,4 +32,4 @@ def create(default_val=None, **route_args) -> RequestDictionary:
         **route_args,  # And additional arguments the method access, if they want them merged.
     }
 
-    return RequestDictionary(data)
+    return RequestDictionary(data, default_val=default_val)
