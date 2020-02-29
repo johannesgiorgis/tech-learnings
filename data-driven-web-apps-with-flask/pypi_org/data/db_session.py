@@ -34,4 +34,4 @@ def create_session() -> Session:
     session: Session = __factory()
     session.expire_on_commit = False
 
-    return __factory()
+    return session

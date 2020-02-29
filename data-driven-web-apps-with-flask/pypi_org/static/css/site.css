@@ -8,23 +8,9 @@ body {
 }
 
 .main_content {
-    padding: 0px 0px 50px;
-    margin: 0px;
     background: #fff;
-}
-
-nav {
-    background-color: #000000;
-    padding: 10px;
-    font-size: 20px;
-    color: white;
-    height: 65px;
-    background-color: #0073b7;
-}
-
-nav > a {
-    color: white;
-    margin-right: 10px;
+    margin: 0px;
+    padding: 0px 0px 50px;
 }
 
 .hero {
@@ -84,7 +70,6 @@ nav > a {
 .project-list h2 {
     font-size: 24px;
     font-weight: bold;
-
 }
 
 .project-list .project {
