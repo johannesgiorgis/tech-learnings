@@ -1,4 +1,4 @@
-from pypi_org.services import package_service
+from pypi_org.services import package_service, user_service
 from pypi_org.viewmodels.shared.viewmodelbase import ViewModelBase
 
 
@@ -7,6 +7,7 @@ class IndexViewModel(ViewModelBase):
         super().__init__()
 
         self.releases = package_service.get_latest_releases()
-        self.package_count = package_service.get_latest_releases()
-        self.release_count = package_service.get_latest_releases()
-        self.user_count = package_service.get_latest_releases()
+        self.package_count = package_service.get_package_count()
+        self.release_count = package_service.get_release_count()
+        self.user_count = user_service.get_user_count()
+

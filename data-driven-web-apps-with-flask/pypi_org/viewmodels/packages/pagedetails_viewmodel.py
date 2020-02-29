@@ -3,12 +3,12 @@ from pypi_org.viewmodels.shared.viewmodelbase import ViewModelBase
 
 
 class PackageDetailsViewModel(ViewModelBase):
-    def __init__(self, psckage_num: str):
+    def __init__(self, package_num: str):
         super().__init__()
-        self.package_name = psckage_num
+        self.package_name = package_num
         self.package = None
-        if psckage_num:
-            self.package_name = psckage_num.strip().lower()
+        if package_num:
+            self.package_name = package_num.strip().lower()
             self.package = package_service.get_package_by_id(self.package_name)
 
         self.latest_version = "0.0.0"

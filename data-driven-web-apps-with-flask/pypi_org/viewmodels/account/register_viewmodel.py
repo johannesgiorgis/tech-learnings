@@ -5,8 +5,8 @@ from pypi_org.viewmodels.shared.viewmodelbase import ViewModelBase
 class RegisterViewModel(ViewModelBase):
     def __init__(self):
         super().__init__()
-        self.user = user_service.find_user_by_id(self.user_id)
 
+        # self.user = user_service.find_user_by_id(self.user_id)
         self.name = self.request_dict.name
         self.email = self.request_dict.email.lower().strip()
         self.password = self.request_dict.password.strip()
