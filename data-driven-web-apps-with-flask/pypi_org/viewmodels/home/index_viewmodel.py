@@ -10,3 +10,4 @@ class IndexViewModel(ViewModelBase):
         self.package_count = package_service.get_package_count()
         self.release_count = package_service.get_release_count()
         self.user_count = user_service.get_user_count()
+

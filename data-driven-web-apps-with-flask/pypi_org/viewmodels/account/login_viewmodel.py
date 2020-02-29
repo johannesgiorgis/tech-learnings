@@ -10,6 +10,5 @@ class LoginViewModel(ViewModelBase):
     def validate(self):
         if not self.email or not self.email.strip():
             self.error = "you must specify an email."
-
         elif not self.password:
             self.error = "you must specify a password."
