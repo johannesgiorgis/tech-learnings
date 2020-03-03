@@ -5,6 +5,10 @@ verify_ssl = true
 
 [dev-packages]
 alembic = "*"
+pytest = "*"
+pytest-cov = "*"
+webtest = "*"
+pytest-clarity = "*"
 
 [packages]
 flask = "*"
