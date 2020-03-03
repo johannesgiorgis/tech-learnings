@@ -18,8 +18,8 @@ These are my notes and code as I work through the [Talk Python course].
 - [x] Using SQLAchemy
 - [x] Database migrations with Alembic
 - [x] User input and HTML forms
-- [ ] Client and server-side validation **(Currently working on)**
-- [ ] Testing web apps
+- [x] Client and server-side validation 
+- [ ] Testing web apps **(Currently working on)**
 - [ ] Deployment
 - [ ] MongoDB edition
 - [ ] Course conclusion
