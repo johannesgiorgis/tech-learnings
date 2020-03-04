@@ -85,3 +85,88 @@ and make sure we are getting the right behavior there as well.
 
 These are the three core types of tests that we will focus on in this chapter.
 
+## Testing View Models
+
+They are the simplest of the web framework integrated pieces we have to test.
+
+We need to provide some kind of request data, set up the flask request and other flask features for the view model.
+
+Next, we simply call the functions of the view model.
+
+Let's take the example of testing for the scenario where no email is provided:
+
+```python
+from pypi_org import app as flask_app
+
+def test_register_validation_no_email():
+    # 3 A's of test: Arrange, Act, then Assert
+
+    # Arrange - set up form data
+    from pypi_org.viewmodels.account.register_viewmodel import  import RegisterViewModel
+    form_data = {
+        "email": "",
+        "password": "a",
+    }
+    
+    # allows us to work the form data above
+    with flask_app.test_request_context(path="/account/register", data=form_data):
+        vm = RegisterViewModel()
+
+        # Act
+        vm.validate()
+
+    # Assert
+    assert vm.error is not None
+    assert 'email' in vm.error
+```
+
+## Testing View Methods
+
+As we are using view models, we can assume that all the validation is working just fine, the data exchange is working 
+fine as long as we have already tested that.
+
+We do need to test is that the view method is working with the view model's response correctly. If an error comes back, 
+it actually shows the page with an error rather than just ignores it or that if it uses that data to try to create 
+our user if that user can't be created it still shows the error instead of just redirecting you.
+
+```python
+def test_home_page(self):
+    # Arrange
+    from pypi_org.views.home_views import index
+    with flask_app.app.test_request_context(path='/'):
+        
+        # Act
+        r: Response = index()
+    
+    # Assert
+    assert r.status_code == 200
+    assert len(r.model.get('packages')) > 0
+```
+
+Realistic test that needs to mock the database interaction:
+
+```python
+def test_package_details_no_db(self):
+
+    # Arrange
+    from pypi_org.views.package_views import project
+    from pypi_org.data.package import Package
+
+    test_package = Package()
+    test_package.id = 'sqlalchemy'
+    test_package.releases = [
+        Release(created_date=datetime.datetime.now(), major_ver=1, minor_ver=2, build_ver=200),
+        Release(created_date=datetime.datetime.now() - datetime.timedelta(days=10)),
+    ]
+    with mock.patch('pypi_org.services.package_service.package_by_id', return_value=test_package):
+        with mock.patch('pypi_org.services.package_service.releases_for_package', return_value=test_package.releases):
+            with flask_app.app.test_request_context(path='/project/sqlalchemy'):
+            
+                # Act
+                r = project(test_package.id) # calls package_servic.package_by_id() ...
+
+    # Assert
+    web_package: Package = r.model['package']
+    self.assertEqual(web_package.id, 'sqlalchemy')
+    self.assertEqual(len(web_package.releases), 2)
+```

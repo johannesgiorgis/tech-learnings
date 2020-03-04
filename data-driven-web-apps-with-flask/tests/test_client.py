@@ -12,16 +12,19 @@ from pypi_org.app import app as flask_app
 
 @pytest.fixture
 def client():
-    flask_app.app.config["TESTING"] = True
-    client = flask_app.app.test_client()
+    flask_app.config["TESTING"] = True
+    client = flask_app.test_client()
 
     # noinspection PyBroadException,PyUnusedLocal
     try:
-        flask_app.register_blueprint()
-    except:
+        # flask_app.register_blueprint()
+        pypi_org.app.register_blueprints()
+    except Exception as error:
+        print(error)
         pass
 
-    flask_app.init_db()
+    # flask_app.init_db()
+    pypi_org.app.setup_db()
     # client.post()
 
     yield client
