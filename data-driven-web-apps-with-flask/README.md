@@ -19,8 +19,8 @@ These are my notes and code as I work through the [Talk Python course].
 - [x] Database migrations with Alembic
 - [x] User input and HTML forms
 - [x] Client and server-side validation 
-- [ ] Testing web apps **(Currently working on)**
-- [ ] Deployment
+- [x] Testing web apps
+- [ ] Deployment **(Currently working on)**
 - [ ] MongoDB edition
 - [ ] Course conclusion
 
