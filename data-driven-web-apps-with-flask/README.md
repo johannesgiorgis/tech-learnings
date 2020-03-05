@@ -24,6 +24,15 @@ These are my notes and code as I work through the [Talk Python course].
 - [ ] MongoDB edition
 - [ ] Course conclusion
 
+## Docker
+```bash
+# Build
+$ docker build --rm --no-cache -t pypi_org:1.0 .
+
+# Run
+$ docker run -it --rm -p 5000:5000 pypi_org:1.0
+```
+
 [//]: # (References)
 
 [Talk Python course]: https://training.talkpython.fm/courses/details/building-data-driven-web-applications-in-python-with-flask-sqlalchemy-and-bootstrap
