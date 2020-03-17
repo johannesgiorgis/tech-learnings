@@ -8,7 +8,12 @@ While the user wishes to keep playing the game:
     Create a huts list
     Randomly place 'enemy' or 'friend' or 'unoccupied' in 5 huts
     Prompt the player to select a hut number
-    if enemy : print "you lose"
+    if enemy : 
+        while user wishes to continue to attack:
+            attack()
+            update + show the health
+            if enemy health <= 0 -> print "you win"
+            if sir foo helath <= 0 -> print "you lose"
     else : print "you win"
 """
 
@@ -21,7 +26,7 @@ from typing import List
 def show_theme_message(width: int):
     """Print the game theme in the terminal window"""
     print_dotted_line()
-    print_bold("Attack of the Orcs v0.0.1:")
+    print_bold("Attack of The Orcs v0.0.5:")
     msg = (
         "The war between humans and their arch enemies, Orcs, was in the "
         "offing. Sir Foo, one of the brave knights guarding the southern "
@@ -76,16 +81,20 @@ def process_user_choice() -> int:
     return idx
 
 
-def enter_hut(idx: int, huts: List[str]):
-    """Enter the hut"""
-    print_bold(f"Entering hut {idx}... ", end=" ")
+def show_health(health_meter: dict, bold: bool = False):
+    """Show the remaining hit points of the player and the enemy"""
+    msg = f"Health: Sir Foo: {health_meter['player']}, Enemy: {health_meter['enemy']}"
 
-    # Determine and announce the winner
-    if huts[idx + 1] == "enemy":
-        print_bold("YOU LOSE :( Better luck next time!")
+    if bold:
+        print_bold(msg)
     else:
-        print_bold("Congratulations! YOU WIN!!!")
-    print_dotted_line()
+        print(msg)
+
+
+def reset_health_meter(health_meter: dict):
+    """Reset the values of health_meter dict to the original ones"""
+    health_meter["player"] = 40
+    health_meter["enemy"] = 30
 
 
 def print_bold(msg: str, end: str = "\n"):
@@ -98,22 +107,66 @@ def print_dotted_line(width: int = 72):
     print("-" * width)
 
 
+def attack(health_meter: dict):
+    """The main logic to determine injured unit and amount of injury"""
+    hit_list = 4 * ["player"] + 6 * ["enemy"]
+    injured_unit = random.choice(hit_list)
+    hit_points = health_meter[injured_unit]
+    injury = random.randint(10, 15)
+    health_meter[injured_unit] = max(hit_points - injury, 0)
+    print("ATTACK! ", end="")
+    show_health(health_meter)
+
+
+def play_game(health_meter: dict):
+    """The main control function for playing the game"""
+    huts = occupy_huts()
+    idx = process_user_choice()
+    reveal_occupants(idx, huts)
+
+    if huts[idx - 1] != "enemy":
+        print_bold("Congratulations! YOU WIN!!!")
+    else:
+        print_bold("ENEMY SIGHTED! ", end="")
+        show_health(health_meter, bold=True)
+        continue_attack = True
+
+        # Loop that actually runs the combat if user wants to attack
+        while continue_attack:
+            continue_attack = input(".......continue attack? (y/n): ")
+            if continue_attack == "n":
+                print_bold("RUNNING AWAY with following health status...")
+                show_health(health_meter, bold=True)
+                print_bold("GAME OVER!")
+                break
+
+            attack(health_meter)
+
+            # Check if either one of the opponents is defeated
+            if health_meter["enemy"] <= 0:
+                print_bold("GOOD JOB! Enemy defeated! YOU WIN!!!")
+                break
+
+            if health_meter["player"] <= 0:
+                print_bold("YOU LOSE  :(  Better luck next time")
+                break
+
+
 def run_application():
     """Top level control function for running the application."""
     keep_playing = "y"
     width = 72
-    # dotted_line = "-" * width
+    health_meter = {}
 
     show_theme_message(width)
+    reset_health_meter(health_meter)
     show_game_mission()
 
     while keep_playing == "y":
-        huts = occupy_huts()
-        idx = process_user_choice()
-        reveal_occupants(idx, huts)
+        reset_health_meter(health_meter)
+        play_game(health_meter)
 
-        enter_hut(idx, huts)
-        keep_playing = input("Play again? Yes(y)/No(n):")
+        keep_playing = input("\nPlay again? Yes(y)/No(n):")
 
 
 if __name__ == "__main__":
