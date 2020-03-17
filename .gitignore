@@ -4,6 +4,7 @@ venv
 .idea
 __pycache__
 course-repo
+LearningPythonApplicationDevelopment_code
 
 # files
 .DS_Store
