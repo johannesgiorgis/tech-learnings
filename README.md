@@ -1,17 +1,12 @@
-# Talk Python Courses
+# Python Learning
 
-These are my notes and work as I work through the [Talk Python courses].
+This repository holds the various content I work through to learn different Python tools, frameworks.
 
 _Status_
 
-Currently, I am working through [Building Data Driven Web Applications with Flask, SQLAlchemy and Bootstrap course]
-
-_Courses_
-
-- [Building Data Driven Web Applications with Flask, SQLAlchemy and Bootstrap]
+Currently, I am working through some [Talk Python courses] and reading the book, [Learning Python Application Development].
 
 [//]: # (References)
 
 [Talk Python courses]: https://training.talkpython.fm/courses/all
-[Building Data Driven Web Applications with Flask, SQLAlchemy and Bootstrap course]: https://training.talkpython.fm/courses/details/building-data-driven-web-applications-in-python-with-flask-sqlalchemy-and-bootstrap
-[Building Data Driven Web Applications with Flask, SQLAlchemy and Bootstrap]: data-driven-web-apps-with-flask/README.md
+[Learning Python Application Development]: https://www.oreilly.com/library/view/learning-python-application/9781785889196/
