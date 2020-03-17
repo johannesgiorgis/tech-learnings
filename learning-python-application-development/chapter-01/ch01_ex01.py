@@ -1,4 +1,8 @@
 """
+Attack of the Orcs v0.0.1
+Simple Script
+-------------------------
+
 While the user wishes to keep playing the game:
     Print the game mission 
     Create a huts list 
