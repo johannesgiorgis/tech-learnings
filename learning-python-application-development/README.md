@@ -2,6 +2,12 @@
 
 These are my notes and work as I work through the [Learning Python Application Development] book.
 
+Get the Course Github Repo:
+
+```sh
+git clone https://github.com/PacktPublishing/Learning-Python-Application-Development.git LearningPythonApplicationDevelopment_code
+```
+
 ## Book Chapters
 
 - [ ] Ch 01: Developing Simple Applications **(Currently working on)**

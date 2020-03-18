@@ -6,6 +6,12 @@ _Status_
 
 Currently, I am working through [Building Data Driven Web Applications with Flask, SQLAlchemy and Bootstrap course]
 
+Get the Course Github Repo:
+
+```sh
+git clone https://github.com/talkpython/data-driven-web-apps-with-flask.git course-repo
+```
+
 _Courses_
 
 - [Building Data Driven Web Applications with Flask, SQLAlchemy and Bootstrap]
