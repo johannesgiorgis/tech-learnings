@@ -1,5 +1,5 @@
 """
-Attack of the Orcs v0.0.5
+Attack of the Orcs v1.0.0
 Using Functions
 -------------------------
 
