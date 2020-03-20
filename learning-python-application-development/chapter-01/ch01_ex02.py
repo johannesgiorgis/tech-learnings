@@ -8,12 +8,12 @@ While the user wishes to keep playing the game:
     Create a huts list
     Randomly place 'enemy' or 'friend' or 'unoccupied' in 5 huts
     Prompt the player to select a hut number
-    if enemy : 
+    if enemy :
         while user wishes to continue to attack:
             attack()
             update + show the health
             if enemy health <= 0 -> print "you win"
-            if sir foo helath <= 0 -> print "you lose"
+            if sir foo health <= 0 -> print "you lose"
     else : print "you win"
 """
 
