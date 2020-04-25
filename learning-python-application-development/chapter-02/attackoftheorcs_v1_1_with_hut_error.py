@@ -33,6 +33,7 @@ import random
 from abc import ABCMeta, abstractmethod
 
 from gameuniterror import GameUnitError
+from huterror import HutError
 
 
 def weighted_random_selection(obj1, obj2):
@@ -265,19 +266,25 @@ class AttackOfTheOrcs:
                 idx = int(user_choice)
             except ValueError as e:
                 print(f"Invalid input, args: {e.args}")
-                continue
+                raise HutError(103)
+                # continue
 
-            try:
-                if self.huts[idx - 1].is_acquired:
-                    print(
-                        "You have already acquired this hut. Try again."
-                        "<INFO: You can NOT get healed in already acquired hut.>"
-                    )
-                else:
-                    verifying_choice = False
-            except IndexError:
-                print(f"Invalid input : {idx}")
-                print("Number should be in the range 1 - 5. Try again")
+            print(idx - 1, "huts:", len(self.huts))
+            if idx < 0:
+                raise HutError(102)
+            if idx - 1 >= len(self.huts):
+                raise HutError(101)
+
+            if self.huts[idx - 1].is_acquired:
+                print(
+                    "You have already acquired this hut. Try again."
+                    "<INFO: You can NOT get healed in already acquired hut.>"
+                )
+            else:
+                verifying_choice = False
+            # except IndexError:
+            #     print(f"Invalid input : {idx}")
+            #     print("Number should be in the range 1 - 5. Try again")
 
         return idx
 
