@@ -10,11 +10,11 @@ git clone https://github.com/PacktPublishing/Learning-Python-Application-Develop
 
 ## Book Chapters
 
-- [ ] Ch 01: Developing Simple Applications **(Currently working on)**
-- [ ] Ch 02: Dealing with Exceptions
-- [ ] Ch 03: Modularize, Package, Deploy!
-- [ ] Ch 04: Documentation and Best Practices
-- [ ] Ch 05: Unit Testing and Refactoring
+- [x] Ch 01: Developing Simple Applications
+- [x] Ch 02: Dealing with Exceptions
+- [x] Ch 03: Modularize, Package, Deploy!
+- [x] Ch 04: Documentation and Best Practices
+- [ ] Ch 05: Unit Testing and Refactoring **(Currently working on)**
 - [ ] Ch 06: Design Patterns
 - [ ] Ch 07: Performance – Identifying Bottlenecks
 - [ ] Ch 08: Improving Performance – Part One
