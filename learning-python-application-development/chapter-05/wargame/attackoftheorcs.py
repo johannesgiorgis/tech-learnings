@@ -86,7 +86,6 @@ class AttackOfTheOrcs:
 
         while acquired_hut_counter < self.num_huts:
             idx = self._process_user_choice()
-            print(f"\tIndex:{idx}")
             self.player.acquire_hut(self.huts[idx - 1])
 
             if self.player.health_meter <= 0:
