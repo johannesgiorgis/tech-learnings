@@ -4,10 +4,20 @@ from hut import Hut
 
 
 class TestHut(unittest.TestCase):
-    """Contains unit tests for the game Attack of the Orcs"""
+    """Contains unit tests for the game Attack of the Orcs.
+
+    .. seealso::
+       :py:meth: `wargame.hut.Hut.acquire`
+    """
 
     def setUp(self):
-        """Called just before calling each unit test"""
+        """Overrides the setUp fixture of the superclass.
+
+        This method is called just before the calling each  unit test.
+        Here, it creates instances of Knight for use by various unit tests.
+
+        .. seealso:: :py:meth:`TestCase.tearDown`
+        """
         self.knight = Knight()
 
     def test_acquire_hut(self):

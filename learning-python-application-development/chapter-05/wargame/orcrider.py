@@ -6,7 +6,10 @@ from abstractgameunit import AbstractGameUnit
 
 
 class OrcRider(AbstractGameUnit):
-    """Class that represents the game character Orc Rider"""
+    """Class that represents the game character Orc Rider
+
+    .. seealso:: The class `Knight` and the superclass `AbstractGameUnit`
+    """
 
     def __init__(self, name: str = ""):
         super().__init__(name=name)
@@ -17,4 +20,4 @@ class OrcRider(AbstractGameUnit):
 
     def info(self):
         """Print basic information about this character"""
-        print("Grrrr..I am an Orc Wolf Rider. Don't mess with me.")
+        print("Grrrr..I am an Orc Rider. Don't mess with me.")

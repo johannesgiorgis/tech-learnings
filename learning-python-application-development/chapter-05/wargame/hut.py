@@ -20,28 +20,49 @@ class Hut:
                     `AbstractGameUnit`.
     
     .. seealso:: Where it is used --
-            :py:math:`attackoftheowrds.AttackOfTheOrcs.setup_game_scenario`
-
-
+            :py:meth:`attackoftheowrds.AttackOfTheOrcs.setup_game_scenario`
     """
 
-    def __init__(self, number: int, occupant):
+    def __init__(self, number: int, occupant=None):
         self.occupant = occupant
         self.number = number
         self.is_acquired = False
 
     def acquire(self, new_occupant):
-        """Update the occupant of this hut
+        """Update the occupant of this hut and set is_acquired flag.
 
-        :param new_occupant: 
+        Update the occupant instance variable with the parameter new_occupant
+        and set the is_acquired flag to True.
 
+        :arg new_occupant: self.occupant will be updated with this parameter
+
+        .. todo:: In the current implementation this is supposed to be
+                  called only by the `Knight` instance (everything from the
+                  player context. A generalization is to allow anyone to
+                  'acquire' the hut! In that case, the client code
+                  should properly interpret meaning of `is_acquired` flag!
+                  Otherwise it will be a bug! As an exercise, write a unit test
+                  to catch this and/or make the calling code robust.
         """
         self.occupant = new_occupant
         self.is_acquired = True
         print_bold(f"GOOD JOB! Hut {self.number} acquired")
 
     def get_occupant_type(self) -> str:
-        """Return a string giving info on the hut occupant"""
+        """Return a string giving info on occupant type.
+
+        Used only for the printing information on who is present in the hut
+        the information it will return depends on the occupant and can be
+        one of these strings: 'enemy', 'friend', 'ACQUIRED', 'unoccupied'
+
+        The logic is as follows: If the hut.occupant is one of the game
+        characters, it will simply retrieve this info from that instance.
+        Otherwise determine whether it is acquired or unoccupied.
+
+        :return: A string representing the occupant type
+
+        .. seealso: :py:meth:`attackoftheorcs.AttackOfTheOrcs.get_occupants`
+        """
         if self.is_acquired:
             occupant_type = "ACQUIRED"
         elif self.occupant is None:

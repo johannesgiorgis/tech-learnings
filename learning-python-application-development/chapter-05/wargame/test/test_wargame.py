@@ -8,6 +8,7 @@ from knight import Knight
 from orcrider import OrcRider
 from abstractgameunit import AbstractGameUnit
 from gameutils import weighted_random_selection
+from hut import Hut
 from attackoftheorcs import AttackOfTheOrcs
 
 from unittest.mock import Mock
@@ -19,22 +20,63 @@ class TestWarGame(unittest.TestCase):
     """
 
     def setUp(self):
-        """Overrides the setUp fixture of the superclass"""
+        """Overrides the setUp fixture of the superclass.
+
+        This method is called just before the calling each  unit test.
+        Here, it creates instances of Knight and OrcRider for use by
+        various unit tests.
+
+        .. seealso:: TestCase.tearDown()
+        """
         self.knight = Knight()
         self.enemy = OrcRider()
 
-    #
-    # def test_injured_unit_selection(self):
-    #     """Unit test to verify if the injured unit is
-    #     an instance of class AbstractGameUnit"""
-    #     for i in range(100):
-    #         injured_unit = weighted_random_selection(self.knight, self.enemy)
-    #
-    #         self.assertIsInstance(
-    #             injured_unit,
-    #             AbstractGameUnit,
-    #             "Injured unit must be an instance of AbstractGameUnit",
-    #         )
+    def test_injured_unit_selection(self):
+        """Unit test to verify working of weighted_random_selection()
+
+
+        .. seealso:: gameutils.weighted_random_selection
+        """
+        for i in range(100):
+            injured_unit = weighted_random_selection(self.knight, self.enemy)
+
+            self.assertIsInstance(
+                injured_unit,
+                AbstractGameUnit,
+                "Injured unit must be an instance of AbstractGameUnit",
+            )
+
+    def test_acquire_hut(self):
+        """Unit test to ensure that when hut is 'acquired'
+
+        The test asserts if the hut.occupant is updated to the Knight instance.
+        """
+        print("\nCalling test_hut.test_acquire_hut...")
+        hut = Hut(4, None)
+        hut.acquire(self.knight)
+        self.assertIs(hut.occupant, self.knight)
+
+    def test_occupy_huts(self):
+        """Unittest to verify number of huts and the occupants.
+
+        This test verifies that the total number of `hut` instance created
+          and also checks the type of its `occupant` attribute.
+
+        .. seealso::
+
+           :py:meth:`attackoftheorcs.AttackOfTheOrcs._occupy_huts` ,
+           :py:meth:`attackoftheorcs.AttackOfTheOrcs.setup_game_scenario`
+        """
+        game = AttackOfTheOrcs()
+        game.setup_game_scenario()
+
+        # Verify that only 5 huts are created.
+        self.assertEqual(len(game.huts), 5)
+
+        # Huts occupants must be an instance of a Knight or OrcRider
+        # or it could be set to None.
+        for hut in game.huts:
+            assert (hut.occupant is None) or isinstance(hut.occupant, AbstractGameUnit)
 
     def user_input_processor(self, prompt):
         """Simulate user input based on user prompt

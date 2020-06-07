@@ -12,6 +12,15 @@ class Knight(AbstractGameUnit):
     The player instance in the game is a Knight instance. Other Knight
     instances are considered as 'friends' of the player and is
     indicated by the attribute `self.unit_type` .
+
+    :arg str name: Name of this game character (optional)
+
+    :ivar int max_hp: Maximum number of hit points (health points)
+    :ivar int health_meter: The actual number of hit points
+                      or health points
+    :ivar str unit_type: Stores id this character(unit) a friend
+                    or an enemy
+    :ivar AbstractGameUnit enemy: Stores who is the enemy (not implemented)
     """
 
     def __init__(self, name: str = "Sir Foo"):
@@ -21,11 +30,16 @@ class Knight(AbstractGameUnit):
         self.unit_type = "friend"
 
     def info(self):
-        """Print basic information about this character"""
+        """Print basic information about this character
+
+        Overrides AbstractGameUnit.info
+        """
         print("I am a Knight!")
 
     def acquire_hut(self, hut):
         """Fight the combat (command line) to acquire the hut
+
+        :arg Hut hut: The hut that needs to be acquired.
 
         .. TODO::   acquire_hut method can be refactored.
                    Example: Can you use self.enemy instead of calling
@@ -38,22 +52,36 @@ class Knight(AbstractGameUnit):
         )
         continue_attack = "y"
 
+        # Code block that tells what to do when you see, an enemy or a friend
+        # or no one in the hut.
+        # TODO: Refactor this.
         if is_enemy:
             print_bold("Enemy sighted!")
             self.show_health(bold=True, end=" ")
             hut.occupant.show_health(bold=True, end=" ")
+
+            # Attack the enemy until the player says so.
+            # TODO: The user must select either 'y' or 'n'. In
+            # the current implementation there is a bug where you
+            # do not need to enter 'y'... fix this as an exercise!
             while continue_attack:
-                continue_attack = input(".......continue attack? (y/n): ")
+                continue_attack = input("\n...continue attack? (y/n): ")
                 if continue_attack == "n":
                     self.run_away()
                     break
 
+                # Player wants to attack, call the attack method.
                 self.attack(hut.occupant)
 
+                # This turn (iteration) of the combat is over, Check
+                # if Player has won
                 if hut.occupant.health_meter <= 0:
                     print("")
                     hut.acquire(self)
                     break
+
+                # Player's health_meter is empty..
+                # This indicates Player has lost the combat
                 if self.health_meter <= 0:
                     print("")
                     break
@@ -67,9 +95,13 @@ class Knight(AbstractGameUnit):
             self.heal()
 
     def run_away(self):
-        """Abandon the battle.
+        """Abandon the combat and run away from the hut
 
-        .. seealso:: `self.acquire_hut`
+        If the player is losing the combat, there is an option
+        to leave the hut. A strategy to rejuvenate and restart the combat
+        for a better chance of winning.
+
+        ..seealso :: :py:meth:`self.acquire_hut`
         """
         print_bold("RUNNING AWAY...")
         self.enemy = None
