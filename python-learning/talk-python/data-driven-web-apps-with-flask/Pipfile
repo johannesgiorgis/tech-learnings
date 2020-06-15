@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+alembic = "*"
+pytest = "*"
+pytest-cov = "*"
+webtest = "*"
+pytest-clarity = "*"
+
+[packages]
+flask = "*"
+sqlalchemy = "*"
+progressbar2 = "*"
+python-dateutil = "*"
+passlib = "*"
+
+[requires]
+python_version = "3.7"
