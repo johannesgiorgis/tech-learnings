@@ -12,6 +12,10 @@ Additional Readings:
 - [How to Write Go Code]
 - [Effective Go]
 
+## Progress
+
+- [ ] [Tour of Go] **in progress**
+- [ ] [Go Programming Blueprints - 2nd Edition]
 
 [//]: # (References)
 
