@@ -1,4 +1,6 @@
-/* Exercise: Fibonacci Closure */
+/* Exercise: Fibonacci Closure
+https://tour.golang.org/moretypes/26
+*/
 
 package main
 

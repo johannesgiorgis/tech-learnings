@@ -1,4 +1,6 @@
-/* Exercise: Maps */
+/* Exercise: Maps
+https://tour.golang.org/moretypes/23
+*/
 
 package main
 

@@ -1,4 +1,6 @@
-/* Exercise: Loops and Functions */
+/* Exercise: Loops and Functions
+https://tour.golang.org/flowcontrol/8
+*/
 
 package main
 

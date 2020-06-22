@@ -1,4 +1,6 @@
-/* Exercise: Stringer */
+/* Exercise: Stringer
+https://tour.golang.org/methods/18
+*/
 
 package main
 

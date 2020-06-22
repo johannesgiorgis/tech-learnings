@@ -1,4 +1,5 @@
 /* Exercise: Slices
+https://tour.golang.org/moretypes/18
 
 Possible functions:
 - (x + y)/2
