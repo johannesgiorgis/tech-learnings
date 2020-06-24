@@ -14,8 +14,9 @@ Additional Readings:
 
 ## Progress
 
-- [ ] [Tour of Go] **in progress**
-- [ ] [Go Programming Blueprints - 2nd Edition]
+- [x] [Tour of Go]
+- [ ] [Cracking the Coding Interview] **in progress**
+- [ ] [Go Programming Blueprints - 2nd Edition] **in progress**
 
 [//]: # (References)
 
@@ -24,3 +25,4 @@ Additional Readings:
 [How to Write Go Code]: https://golang.org/doc/code.html
 [Effective Go]: https://golang.org/doc/effective_go.html
 [Godoc: documenting Go code]: https://blog.golang.org/godoc-documenting-go-code
+[Cracking the Coding Interview]: http://www.crackingthecodinginterview.com/

@@ -1,6 +1,6 @@
 # Tour of Go Exercises
 
-This directory hosts the Tour of Go exercises.
+This directory hosts the [Tour of Go](https://tour.golang.org/) exercises.
 
 Sections:
 
