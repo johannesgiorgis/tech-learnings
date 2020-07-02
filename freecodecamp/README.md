@@ -1,6 +1,6 @@
 # My Free Code Camp Work
 
-This repository contains my work on Free Code Camp.
+This repository contains my work on [FreeCodeCamp Curriculum](https://www.freecodecamp.org/learn).
 
 The current goal is to work through the JavaScript and the APIs and Microserices sections to build proficiency in JavaScript backend development.
 
