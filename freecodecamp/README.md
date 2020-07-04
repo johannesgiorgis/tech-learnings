@@ -25,9 +25,9 @@ The current goal is to work through the JavaScript and the APIs and Microserices
 - [x] Debugging
 - [x] Basic Data Structures
 - [x] Basic Algorithm Scripting
-- [ ] Object Oriented Programming
-- [ ] Functional Programming
-- [ ] Intermediate Algorithm Scripting
+- [x] Object Oriented Programming
+- [x] Functional Programming
+- [ ] Intermediate Algorithm Scripting **Currently working through this**
 - [ ] JavaScript Algorithms and Data Structures Projects
 
 ### Front End Libraries Certification (300 hours)
