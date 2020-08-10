@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "typer-tutorials"
+version = "0.1.0"
+description = "Typer Tutorials"
+authors = ["Johannes Giorgis <johannesgiorgis@users.noreply.github.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+typer-cli = "^0.0.9"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
