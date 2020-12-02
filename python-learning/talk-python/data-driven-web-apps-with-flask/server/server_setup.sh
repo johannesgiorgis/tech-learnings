@@ -28,8 +28,8 @@ git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=720000'
 
 # Be sure to put your info here:
-git config --global user.email "you@email.com"
-git config --global user.name "Your name"
+git config --global user.email "johannesgiorgis@users.noreply.github.com"
+git config --global user.name "Johannes Giorgis"
 
 # Web app file structure
 mkdir /apps
@@ -51,6 +51,9 @@ pip install --upgrade uwsgi
 # clone the repo:
 cd /apps
 git clone https://github.com/talkpython/data-driven-web-apps-with-flask app_repo
+git clone --filter=blob:none \
+  --no-checkout \
+  https://github.com/johannesgiorgis/tutorial-learnings app_repo
 
 # Setup the web app:
 cd cd /apps/app_repo/app/ch15_deploy/final/
@@ -58,6 +61,8 @@ pip install -r requirements.txt
 
 # Copy and enable the daemon
 cp /apps/app_repo/app/ch15_deploy/final/server/pypi.service /etc/systemd/system/pypi.service
+# mine
+cp /apps/app_repo/server/pypi.service /etc/systemd/system/pypi.service
 
 systemctl start pypi
 systemctl status pypi
@@ -70,6 +75,8 @@ apt install nginx
 rm /etc/nginx/sites-enabled/default
 
 cp /apps/app_repo/app/ch15_deploy/final/server/pypi.nginx /etc/nginx/sites-enabled/pypi.nginx
+# mine
+cp /apps/app_repo/server/pypi.nginx /etc/nginx/sites-enabled/pypi.nginx
 update-rc.d nginx enable
 service nginx restart
 
