@@ -20,9 +20,9 @@ These are my notes and code as I work through the [Talk Python course].
 - [x] User input and HTML forms
 - [x] Client and server-side validation 
 - [x] Testing web apps
-- [ ] Deployment **(Currently working on)**
-- [ ] MongoDB edition
-- [ ] Course conclusion
+- [x] Deployment
+- [x] MongoDB edition **Watched video - need to write the code**
+- [x] Course conclusion
 
 ## Docker
 ```bash
