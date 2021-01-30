@@ -24,6 +24,14 @@ These are my notes and code as I work through the [Talk Python course].
 - [x] MongoDB edition **Watched video - need to write the code**
 - [x] Course conclusion
 
+## Course Repo
+
+Get the Course Github Repo:
+
+```sh
+git clone https://github.com/talkpython/data-driven-web-apps-with-flask.git course-repo
+```
+
 ## Docker
 ```bash
 # Build
