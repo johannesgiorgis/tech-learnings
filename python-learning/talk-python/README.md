@@ -9,7 +9,7 @@ Currently, I am working through [Modern APIs with FastAPI and Python] course.
 Get the Course Github Repo:
 
 ```sh
-git clone https://github.com/talkpython/data-driven-web-apps-with-flask.git course-repo
+git clone https://github.com/talkpython/data-driven-web-apps-with-flask.git zcourse-repo
 ```
 
 _Courses_

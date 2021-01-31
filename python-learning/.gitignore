@@ -4,6 +4,7 @@ venv
 .idea
 __pycache__
 course-repo
+zcourse-repo
 LearningPythonApplicationDevelopment_code
 
 # files
