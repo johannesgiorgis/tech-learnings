@@ -12,8 +12,8 @@ These are my notes and code as I work through the [Talk Python course].
 - [x] Modern language foundations
 - [x] Building a realistic API
 - [x] Error handling and performance
-- [ ] Accepting inbound data **In progress**
-- [ ] Deploying FastAPI on Linux with gunicorn and nginx
+- [x] Accepting inbound data
+- [ ] Deploying FastAPI on Linux with gunicorn and nginx **In progress**
 - [ ] Course conclusion and review
 
 ## Course Repo
