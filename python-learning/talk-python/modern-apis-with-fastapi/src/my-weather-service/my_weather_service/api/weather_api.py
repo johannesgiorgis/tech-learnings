@@ -4,6 +4,7 @@ import fastapi
 from fastapi import Depends
 
 from models.location import Location
+from models.validation_error import ValidationError
 
 from services import openweather_service
 
@@ -15,8 +16,9 @@ async def weather(
     loc: Location = Depends(),
     units: Optional[str] = "metric",
 ):
-    report = await openweather_service.get_report_async(
-        loc.city, loc.state, loc.country, units
-    )
-    print(type(report), report)
-    return report
+    try:
+        return await openweather_service.get_report_async(
+            loc.city, loc.state, loc.country, units
+        )
+    except ValidationError as ve:
+        return fastapi.Response(content=ve.error_msg, status_code=ve.status_code)

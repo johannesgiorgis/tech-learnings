@@ -18,7 +18,6 @@ def configure():
 
 
 def configure_api_keys():
-    print("configuring api keys")
     file = Path("settings.json").absolute()
     if not file.exists():
         warning_message = (
