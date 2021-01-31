@@ -9,9 +9,9 @@ These are my notes and code as I work through the [Talk Python course].
 - [x] Welcome to the course
 - [x] Setup and following along
 - [x] Building our first API
-- [ ] Modern language foundations
-- [ ] Building a realistic API
-- [ ] Error handling and performance
+- [x] Modern language foundations
+- [x] Building a realistic API
+- [ ] Error handling and performance **In progress**`
 - [ ] Accepting inbound data
 - [ ] Deploying FastAPI on Linux with gunicorn and nginx
 - [ ] Course conclusion and review
@@ -21,7 +21,7 @@ These are my notes and code as I work through the [Talk Python course].
 Get the Course Github Repo:
 
 ```sh
-git clone https://github.com/talkpython/modern-apis-with-fastapi course-repo
+git clone https://github.com/talkpython/modern-apis-with-fastapi zcourse-repo
 ```
 
 [//]: # (References)
