@@ -29,4 +29,4 @@ Additional Readings/Resources:
 [A Gentle Introduction to Rust]: https://stevedonovan.github.io/rust-gentle-intro/
 [Rust Cheat Sheet]: https://cheats.rs/
 [rustlings - small exercises]: https://github.com/rust-lang/rustlings
-[exercism rust truack]: https://exercism.io/tracks/rust
+[exercism rust track]: https://exercism.io/tracks/rust
