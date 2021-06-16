@@ -7,7 +7,7 @@ This directory hosts the [Tour of Rust](https://tourofrust.com/) exercises.
 - [x] chapter 1: The Basics
 - [x] chapter 2: Basic Control Flow
 - [x] chapter 3: Basic Data Structure Types
-- [ ] chapter 4: Generic Types
+- [x] chapter 4: Generic Types
 - [ ] chapter 5: Ownership & Borrowing Data
 - [ ] chapter 6: Text
 - [ ] chapter 7: Object Oriented Programming
