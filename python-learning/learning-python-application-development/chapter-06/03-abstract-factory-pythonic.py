@@ -9,7 +9,6 @@ The example shows how to use Python's language feature, (classes are first-class
 """
 
 # Some dummy classes to represent factory products (not documented)
-from math import factorial
 
 
 class IronJacket:

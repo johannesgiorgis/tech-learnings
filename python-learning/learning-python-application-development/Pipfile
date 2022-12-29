@@ -4,7 +4,6 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-bpython = "==0.19"
 
 [packages]
 pyment = "*"
@@ -14,4 +13,4 @@ pylint = "*"
 coverage = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.9"
