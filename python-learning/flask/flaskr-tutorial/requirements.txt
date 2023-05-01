@@ -4,7 +4,7 @@ attrs==19.1.0
 black==19.3b0
 Click==7.0
 coverage==4.5.4
-Flask==1.1.1
+Flask==2.3.2
 #-e git+git@github.com:johannesgiorgis/flask_tutorial.git@3d835f01b41e8720bbf63c29683d570b38bdecdf#egg=flaskr&subdirectory=flask-tutorial
 importlib-metadata==0.19
 itsdangerous==1.1.0
