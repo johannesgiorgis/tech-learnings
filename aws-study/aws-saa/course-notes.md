@@ -251,10 +251,243 @@ A company is using Amazon Kinesis Data Streams to ingest clickstream data and th
 
 > On-demand Mode
 
-
-
-
-
-
-
 ## 18 - Containers on AWS: ECS, Fargate, ECR & EKS
+
+6/8 - 75%
+
+You have multiple Docker-based applications hosted on-premises that you want to migrate to AWS. You don't want to provision or manage any infrastructure; you just want to run your containers on AWS. Which AWS service should you choose?
+
+- ECS in EC2 Launch Mode
+- ECR
+- AWS Fargate on ECS (answer)
+
+> AWS Fargate allows you to run your containers on AWS without managing any servers.
+
+Amazon Elastic Container Service (ECS) has two Launch Types: .................. and ..................
+
+- Amazon EC2 Launch Type and Fargate Launch Type (correct)
+- Amazon EC2 Launch Type and EKS Launch Type
+- Fargate Launch Type and EKS Launch Type
+
+You have an application hosted on an ECS Cluster (EC2 Launch Type) where you want your ECS tasks to upload files to an S3 bucket. Which IAM Role for your ECS Tasks should you modify?
+
+- EC2 Instance Profile
+- ECS Task Role (correct)
+
+> ECS Task Role is the IAM Role used by the ECS task itself. Use when your container wants to call other AWS services like S3, SQS, etc.
+
+You're planning to migrate a WordPress website running on Docker containers from on-premises to AWS. You have decided to run the application in an ECS Cluster, but you want your docker containers to access the same WordPress website content such as website files, images, videos, etc. What do you recommend to achieve this?
+
+- Mount an EFS Volume (correct)
+- Mount an EBS Volume
+- Use an EC2 Instance Store
+
+> EFS volume can be shared between different EC2 instances and different ECS Tasks. It can be used as a persistent multi-AZ shared storage for your containers.
+
+You are deploying an application on an ECS Cluster made of EC2 instances. Currently, the cluster is hosting one application that is issuing API calls to DynamoDB successfully. Upon adding a second application, which issues API calls to S3, you are getting authorization issues. What should you do to resolve the problem and ensure proper security?
+
+- Edit the EC2 instance role to add permissions to S3
+- Create an IAM task role for the new application (correct)
+- Enable the Fargate mode
+- Edit the S3 bucket policy to allow the ECS task
+
+You are migrating your on-premises Docker-based applications to Amazon ECS. You were using Docker Hub Container Image Library as your container image repository. Which is an alternative AWS service which is fully integrated with Amazon ECS?
+
+- AWS Fargate
+- ECR (correct)
+- EKS
+- Amazon EC2
+
+> Amazon ECR is a fully managed container registry that makes it easy to store, manage, share, and deploy your container images. It won't help in running your Docker-based applications.
+
+Amazon EKS supports the following node types, EXCEPT ………………..
+
+- Managed Node Groups
+- Self-Managed Nodes
+- AWS Fargate
+- AWS Lambda (correct)
+
+A developer has a running website and APIs on his local machine using containers and he wants to deploy both of them on AWS. The developer is new to AWS and doesn’t know much about different AWS services. Which of the following AWS services allows the developer to build and deploy the website and the APIs in the easiest way according to AWS best practices?
+
+- AWS App Runner (correct)
+- EC2 Instances + ALB
+- Amazon ECS
+- AWS Fargate
+
+## 20 - Serverless Solutions Architecture
+
+7/8 - 87.5%
+
+A startup company plans to run its application on AWS. As a solutions architect, the company hired you to design and implement a fully Serverless REST API. Which technology stack do you recommend?
+
+- API Gateway + Lambda (correct)
+- ALB + EC2
+- ECS + EBS
+- CloudFront + S3
+
+#TODO
+The following AWS services have an out of the box caching feature, EXCEPT .................
+
+- API Gateway
+- Lambda (correct)
+- DynamoDB
+
+> Lambda does not have an out-of-the-box caching feature.
+
+You have a lot of static files stored in an S3 bucket that you want to distribute globally to your users. Which AWS service should you use?
+
+- S3 Cross-Region Replication
+- CloudFront (correct)
+- Route53
+- API Gateway
+
+> Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency, high transfer speeds. This is a perfect use case for Amazon CloudFront.
+
+#TODO
+You have created a DynamoDB table in `ap-northeast-1` and would like to make it available in `eu-west-1`, so you decided to create a DynamoDB Global Table. What needs to be enabled first before you create a DynamoDB Global Table?
+
+- DynamoDB Streams (correct)
+- DynamoDB DAX
+- DynamoDB Versioning
+- DynamoDB Backups
+
+> Amazon DynamoDB Accelerator (DAX) is a fully managed, highly available, in-memory cache for DynamoDB that delivers up to a 10x performance improvement – from milliseconds to microseconds – even at millions of requests per second. DAX does all the heavy lifting required to add in-memory acceleration to your DynamoDB tables, without requiring developers to manage cache invalidation, data population, or cluster management.
+> Amazon DynamoDB provides the on-demand backup capability to create full backups of your tables for long-term retention and archival for regulatory compliance needs.
+> DynamoDB Streams enable DynamoDB to get a changelog and use that changelog to replicate data across replica tables in other AWS Regions.
+
+You have configured a Lambda function to run each time an item is added to a DynamoDB table using DynamoDB Streams. The function is meant to insert messages into the SQS queue for further long processing jobs. Each time the Lambda function is invoked, it seems able to read from the DynamoDB Stream but it isn't able to insert the messages into the SQS queue. What do you think the problem is?
+
+- Lambda can't be used to insert messages into the SQS queue, use an EC2 instance instead
+- The Lambda Execution IAM Role is missing permissions (correct)
+- The Lambda security group must allow outbound access to SQS
+- The SQS security group must be edited to allow AWS Lambda
+
+You would like to create an architecture for a micro-services application whose sole purpose is to encode videos stored in an S3 bucket and store the encoded videos back into an S3 bucket. You would like to make this micro-services application reliable and has the ability to retry upon failures. Each video may take over 25 minutes to be processed. The services used in the architecture should be asynchronous and should have the capability to be stopped for a day and resume the next day from the videos that haven't been encoded yet. Which of the following AWS services would you recommend in this scenario?
+
+- S3 + Lambda
+- SNS + EC2
+- SQS + EC2 (correct)
+- SQS + Lambda
+
+> Amazon SQS allows you to retain messages for days and process them later, while we can take down our EC2 instances.
+
+You are running a photo-sharing website where your images are downloaded from all over the world. Every month you publish a master pack of beautiful mountain images that are over 15 GB in size. The content is currently hosted on an Elastic File System (EFS) file system and distributed by an Application Load Balancer and a set of EC2 instances. Each month, you are experiencing very high traffic which increases the load on your EC2 instances and increases network costs. What do you recommend to reduce EC2 load and network costs without refactoring your website?
+
+- Hosts the master pack into S3
+- Enable ALB Caching
+- Scale up the EC2 instances
+- Create a CloudFront Distribution (correct)
+
+> Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency, high transfer speeds. Amazon CloudFront can be used in front of an Application Load Balancer.
+
+An AWS service allows you to capture gigabytes of data per second in real-time and deliver these data to multiple consuming applications, with a replay feature.
+
+- Kinesis Data Streams (correct)
+- S3
+- MQ
+
+> Amazon Kinesis Data Streams (KDS) is a massively scalable and durable real-time data streaming service. It can continuously capture gigabytes of data per second from hundreds of sources such as website clickstreams, database event streams, financial transactions, social media feeds, IT logs, and location-tracking events.
+
+## 21 - Databases in AWS
+
+10/10 - 100%
+
+Which database helps you store relational datasets, with SQL language compatibility and the capability of processing transactions such as insert, update, and delete?
+
+- RDS
+
+Which AWS service provides you with caching capability that is compatible with Redis API?
+
+- ElastiCache - Amazon ElastiCache is a fully managed in-memory data store, compatible with Redis or Memcached.
+
+You want to migrate an on-premises MongoDB NoSQL database to AWS. You don't want to manage any database servers, so you want to use a managed NoSQL database, preferably Serverless, that provides you with high availability, durability, and reliability, and the capability to take your database global. Which database should you choose?
+
+- DynamoDB - Amazon DynamoDB is a key-value, document, NoSQL database.
+
+You are looking to perform Online Transaction Processing (OLTP). You would like to use a database that has built-in auto-scaling capabilities and provides you with the maximum number of replicas for its underlying storage. What AWS service do you recommend?
+
+- Aurora
+
+> Amazon Aurora is a MySQL and PostgreSQL-compatible relational database. It features a distributed, fault-tolerant, self-healing storage system that auto-scales up to 128TB per database instance. It delivers high performance and availability with up to 15 low-latency read replicas, point-in-time recovery, continuous backup to Amazon S3, and replication across 3 AZs.
+
+As a Solutions Architect, a startup company asked you for help as they are working on an architecture for a social media website where users can be friends with each other, and like each other's posts. The company plan on performing some complicated queries such as "What are the number of likes on the posts that have been posted by the friends of Mike?". Which database do you recommend?
+
+- Amazon Neptune is a fast, reliable, fully-managed graph database service that makes it easy to build and run applications that work with highly connected datasets.
+
+You have a set of files, 100MB each, that you want to store in a reliable and durable key-value store. Which AWS service do you recommend?
+
+- S3 - Amazon S3 is indeed a key-value store! (where the key is the full path of the object in the bucket)
+
+A company has an on-premises website that uses ReactJS as its frontend, NodeJS as its backend, and MongoDB for the database. There are some issues with the self-hosted MongoDB database as there is a lot of maintenance required and they don’t have and can’t afford the resources or experience to handle those issues. So, a decision was made to migrate the website to AWS. They have decided to host the frontend ReactJS application in an S3 bucket and the NodeJS backend on a set of EC2 instances. Which AWS service can they use to migrate the MongoDB database that provides them with high scalability and availability without making any code changes?
+
+- DocumentDB
+
+A company using a self-hosted on-premises Apache Cassandra database which they want to migrate to AWS. Which AWS service can they use which provides them with a fully managed, highly available, and scalable Apache Cassandra database?
+
+- Keyspaces
+
+An online payment company is using AWS to host its infrastructure. Due to the application’s nature, they have a strict requirement to store an accurate record of financial transactions such as credit and debit transactions. Those transactions must be stored in secured, immutable, encrypted storage which can be cryptographically verified. Which AWS service is best suited for this use case?
+
+- QLDB
+
+A startup is working on developing a new project to reduce forest fires due to climate change. The startup is developing sensors that will be spread across the entire forest to make some readings such as temperature, humidity, and pressures which will help detect the forest fires before it happens. They are going to have thousands of sensors that are going to store a lot of readings each second. There is a requirement to store those readings and do fast analytics so they can predict if there is a fire. Which AWS service can they use to store those readings?
+
+- Timestream
+
+## 27 - IAM Advanced
+
+3/5 - 60%
+
+You have strong regulatory requirements to only allow fully internally audited AWS services in production. You still want to allow your teams to experiment in a development environment while services are being audited. How can you best set this up?
+
+- Create an AWS Organization and create two Prod and Dev OUs, then Apply an SCP on the Prod OU
+
+You are managing the AWS account for your company, and you want to give one of the developers access to read files from an S3 bucket. You have updated the bucket policy to this, but he still can't access the files in the bucket. What is the problem?
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowsRead",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:user/Dave"
+      },
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::static-files-bucket-xxx"
+    }
+  ]
+}
+```
+
+- Change resource to `arn:aws:s3:::static-files-bucket-xxx/*` as this is an object-level permission
+
+You have 5 AWS Accounts that you manage using AWS Organizations. You want to restrict access to certain AWS services in each account. How should you do that?
+
+- Using AWS Organizations SCP
+
+Which of the following IAM condition key you can use only to allow API calls from a specified AWS region?
+
+- `aws:RequestedRegion`
+
+#TODO
+When configuring permissions for EventBridge to configure a Lambda function as a target you should use ………………….. but when you want to configure a Kinesis Data Streams as a target you should use …………………..
+
+- Resource-Based Policy, Identity-based Policy
+
+## 29 - More Solution Architectures
+
+You are working on a Serverless application where you want to process objects uploaded to an S3 bucket. You have configured S3 Events on your S3 bucket to invoke a Lambda function every time an object has been uploaded. You want to ensure that events that can't be processed are sent to a Dead Letter Queue (DLQ) for further processing. Which AWS service should you use to set up the DLQ?
+
+- Lambda - The Lambda function's invocation is "asynchronous", so the DLQ has to be set on the Lambda function side.
+
+As a Solutions Architect, you have created an architecture for a company that includes the following AWS services: CloudFront, Web Application Firewall (AWS WAF), AWS Shield, Application Load Balancer, and EC2 instances managed by an Auto Scaling Group. Sometimes the company receives malicious requests and wants to block these IP addresses. According to your architecture, Where should you do it?
+
+- AWS WAF
+
+#TODO
+Your EC2 instances are deployed in Cluster Placement Group in order to perform High-Performance Computing (HPC). You would like to maximize network performance between your EC2 instances. What should you use?
+
+- Elastic Fabric Adapter
+
