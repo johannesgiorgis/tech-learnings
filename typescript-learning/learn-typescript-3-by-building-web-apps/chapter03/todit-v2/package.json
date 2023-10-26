@@ -1,0 +1,17 @@
+{
+  "name": "todoit-v1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc",
+    "watch": "tsc --watch",
+    "serve": "browser-sync start --server --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "typescript": "^5.2.2"
+  }
+}
