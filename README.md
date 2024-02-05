@@ -1,3 +1,3 @@
-# Tutorial learnings
+# Tech learnings
 
-My Tutorial Learnings - this repository hosts random tutorials I work through as I continue to learn new tech.
+My Tech Learnings - this repository hosts tech I play with, courses/books I work through, random articles/tutorials I work through as I continue to learn new tech.
