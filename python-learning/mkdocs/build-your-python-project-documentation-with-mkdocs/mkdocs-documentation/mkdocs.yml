@@ -1,0 +1,4 @@
+site_name: Calculation Docs
+
+theme:
+  name: "material"
